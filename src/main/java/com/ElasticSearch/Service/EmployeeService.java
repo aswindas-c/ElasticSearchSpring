@@ -193,7 +193,7 @@ public class EmployeeService {
     
         // Fetch the new manager
         EmployeeManager newManager = employeeElasticRepo.findById(newManagerId);
-        if (newManager == null) {
+        if (newManager == null || newManager.getManagerId()!=0) {
             throw new NoSuchElementException("New manager with ID " + newManagerId + " not found.");
         }
     
